@@ -14,13 +14,6 @@ bool authenticate(std::string &access_token) {
   std::string client_id = client_id_env ? client_id_env : "";
   std::string client_secret = client_secret_env ? client_secret_env : "";
 
-  if (client_id.empty() || client_secret.empty()) {
-    std::cerr << "Error: Please set SPOTIFY_CLIENT_ID and "
-                 "SPOTIFY_CLIENT_SECRET environment variables."
-              << std::endl;
-    return false;
-  }
-
   std::string refresh_token;
   time_t expires_at = 0;
 
