@@ -1,30 +1,9 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0  
-    hooks:
-      - id: check-added-large-files
-      - id: check-executables-have-shebangs
-      - id: check-merge-conflict
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: check-ignore-case-conflict
-
-  - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v13.0.0  
+  - repo: local
     hooks:
       - id: clang-format
-        args: ['--style=Google']  
+        name: clang-format
+        entry: clang-format -i
+        language: system
+        files: \.(cpp|hpp|c|h)$
 
-  - repo: https://github.com/pre-commit/mirrors-cmake-format
-    rev: v0.6.13
-    hooks:
-      - id: cmake-format
-
-  - repo: https://github.com/pre-commit/pre-commit
-    rev: v2.17.0  
-    hooks:
-      - id: check-case-conflict
-      - id: check-yaml
-      - id: check-json
-
-      - id: check-gitignore
